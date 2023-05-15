@@ -1,3 +1,5 @@
+local isValid = IsValid
+
 AddCSLuaFile("cl_init.lua")
 AddCSLuaFile("shared.lua")
 
@@ -17,4 +19,10 @@ function ENT:Initialize()
 	self:DropToFloor()
  
 	self:SetMaxYawSpeed( 90 ) --Sets the angle by which an NPC can rotate at once.
+end
+
+function ENT:Use(ply, caller)
+	if not isValid(ply) then return end
+
+	
 end
