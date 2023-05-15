@@ -9,6 +9,8 @@ ENT.AdminOnly = false
 
 ENT.AutomaticFrameAdvance = true
 
+ENT.Title = "RShop"
+
 function ENT:SetAutomaticFrameAdvance(usingAnim) -- This is called by the game to tell the entity if it should animate itself.
 	self.AutomaticFrameAdvance = bUsingAnim
 end

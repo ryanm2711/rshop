@@ -4,22 +4,31 @@ local scrW = ScrW
 local scrH = ScrH
 local screenScale = ScreenScale
 
+local titleFontSizeScale = 24
+
+surface.CreateFont("rshop_title", {
+    font = "Roboto",
+    size = screenScale(titleFontSizeScale)
+})
+
 function ENT:Draw()
     self:DrawModel()
 
-    --[[local ang = self:GetAngles()
-    local lpos = Vector(0, 0, 80)
+    local ang = self:GetAngles()
+    local lpos = Vector(0, 0, 83)
     local pos = self:LocalToWorld(lpos)
     ang:RotateAroundAxis(self:GetAngles():Forward(), 90)
     ang:RotateAroundAxis(self:GetAngles():Up(), 90)
+
+    local font = "rshop_title"
     
-    local font = DoctorWhoRP:SetFont(DoctorWhoRP.Config.Theme.Font, screenScale(8))
     surface.SetFont(font)
-    local Length = surface.GetTextSize(font)
+    local Length = surface.GetTextSize(self.Title) + 50
 
     cam.Start3D2D(pos, ang, 0.1)
-        local height = 50
-        draw.RoundedBox(DoctorWhoRP.Config.Theme.Roundness, (Length / 2) * -1, 0, Length, height, DoctorWhoRP.Config.Theme.Body )
-        draw.SimpleText(self.PrintName, font, 0, height - 36, DoctorWhoRP.Config.Theme.Text, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP)
-    cam.End3D2D()--]]
+        local heightOffset = 25
+        local height = screenScale(titleFontSizeScale) + heightOffset
+        draw.RoundedBox(8, (Length / 2) * -1, 0, Length, height, Color(0, 0, 0, 240) )
+        draw.SimpleText(self.Title, font, 0, (height - screenScale(titleFontSizeScale)) - (heightOffset / 2), color_white, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP)
+    cam.End3D2D()
 end
