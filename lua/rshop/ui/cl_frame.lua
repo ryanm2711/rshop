@@ -17,10 +17,14 @@ function PANEL:Init()
 
     self.navbar = self:Add("RShop.Navbar")
     self.navbar:Dock(TOP)
+    self.navbar:DockMargin(15, 15, 15, 0)
+    self.navbar.Paint = function(me, w, h)
+        draw.RoundedBox(RShop.Config.PanelRoundness, 0, 0, w, h, RShop.Theme.body)
+    end
 
     self.content = self:Add("Panel")
     self.content:Dock(FILL)
-    self.content:DockMargin(15, 15, 15, 15)
+    self.content:DockMargin(15, 5, 15, 15)
     self.content.Paint = function(me, w, h)
         draw.RoundedBox(RShop.Config.PanelRoundness, 0, 0, w, h, RShop.Theme.body)
     end
