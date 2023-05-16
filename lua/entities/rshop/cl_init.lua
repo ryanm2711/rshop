@@ -28,7 +28,7 @@ function ENT:Draw()
     cam.Start3D2D(pos, ang, 0.1)
         local heightOffset = 25
         local height = screenScale(titleFontSizeScale) + heightOffset
-        draw.RoundedBox(8, (Length / 2) * -1, 0, Length, height, RShop.Theme.body )
+        draw.RoundedBox(RShop.Config.PanelRoundness, (Length / 2) * -1, 0, Length, height, RShop.Theme.body )
         draw.SimpleText(self.Title, font, 0, (height - screenScale(titleFontSizeScale)) - (heightOffset / 2), RShop.Theme.text, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP)
     cam.End3D2D()
 end
