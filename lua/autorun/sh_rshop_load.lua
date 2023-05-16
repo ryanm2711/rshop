@@ -1,4 +1,5 @@
 RShop = RShop or {}
+RShop.Config = {}
 RShop.Version = "1.0.0"
 
 -- Loading files solution taken from https://wiki.facepunch.com/gmod/Global.include

@@ -32,3 +32,11 @@ function ENT:Draw()
         draw.SimpleText(self.Title, font, 0, (height - screenScale(titleFontSizeScale)) - (heightOffset / 2), RShop.Theme.text, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP)
     cam.End3D2D()
 end
+
+net.Receive("RShop.OpenShop", function()
+    if IsValid(RShopMenu) then RShopMenu:Remove() end
+    RShopMenu = vgui.Create("RShop.Frame")
+    RShopMenu:SetSize(scrW() * RShop.Config.FrameSizeW, scrH() * RShop.Config.FrameSizeH)
+    RShopMenu:Center()
+    RShopMenu:MakePopup()
+end)

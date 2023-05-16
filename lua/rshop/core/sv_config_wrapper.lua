@@ -1,0 +1,3 @@
+function RShop:AddConfigOption()
+    
+end

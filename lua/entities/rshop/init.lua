@@ -1,9 +1,11 @@
-local isValid = IsValid
-
 AddCSLuaFile("cl_init.lua")
 AddCSLuaFile("shared.lua")
 
 include("shared.lua")
+
+local isValid = IsValid
+
+util.AddNetworkString("RShop.OpenShop")
 
 function ENT:Initialize()
     self:SetModel("models/Humans/Group03/male_07.mdl")
@@ -21,8 +23,12 @@ function ENT:Initialize()
 	self:SetMaxYawSpeed( 90 ) --Sets the angle by which an NPC can rotate at once.
 end
 
+function ENT:OpenShop(ply)
+	net.Start("RShop.OpenShop")
+	net.Send(ply)
+end
+
 function ENT:Use(ply, caller)
 	if not isValid(ply) then return end
-
-	
+	self:OpenShop(ply)
 end
