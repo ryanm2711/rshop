@@ -9,5 +9,5 @@ RShop.Theme = {
     
     text = Color(200, 200, 200),
 
-
+    accent = Color(0, 195, 255)
 }
